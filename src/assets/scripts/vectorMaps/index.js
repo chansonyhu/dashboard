@@ -5,6 +5,7 @@ import './jquery-jvectormap.css';
 // import './jquery.jvectormap.min';
 import './jquery-jvectormap-max';
 import './jquery-jvectormap-world-mill.js';
+import './common.js';
 import { debounce } from 'lodash';
 
 export default (function () {
@@ -106,4 +107,6 @@ export default (function () {
 
   vectorMapInit();
   $(window).resize(debounce(vectorMapInit, 150));
+
 })();
+

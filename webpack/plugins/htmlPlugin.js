@@ -4,15 +4,15 @@ const
   HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const titles = {
-  'index': 'Dashboard',
+  'index': '智慧运营看板系统',
+  '01-property': '物业服务',
+  '02-repossession': '预约收楼',
+  '03-app_payment': 'App支付',
+  '04-reading': '阅森活',
   'blank': 'Blank',
   'buttons': 'Buttons',
-  'calendar': 'Calendar',
   'charts': 'Charts',
-  'chat': 'Chat',
-  'compose': 'Compose',
   'datatable': 'Datatable',
-  'email': 'Email',
   'forms': 'Forms',
   'google-maps': 'Google Maps',
   'signin': 'Signin',
