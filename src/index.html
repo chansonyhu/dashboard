@@ -101,9 +101,12 @@
                         <img src="assets/static/images/logo.png" alt="">
                       </div>
                     </div>
-                    <div class="peer peer-greed">
-                      <h5 class="lh-1 mB-0 logo-text">Adminator</h5>
-                    </div>
+                    <!-- <div class="peer peer-greed">
+                      <h5 class="lh-1 mB-0 logo-text">    智慧运营看板系统</h5>
+                    </div> -->
+                  </div>
+                  <div class="peer peer-greed">
+                    <h5 class="lh-1 mB-0 logo-text">    智慧运营看板系统</h5>
                   </div>
                 </a>
               </div>
@@ -124,7 +127,7 @@
                 <span class="icon-holder">
                   <i class="c-blue-500 ti-home"></i>
                 </span>
-                <span class="title">Dashboard</span>
+                <span class="title">App情况</span>
               </a>
             </li>
             <li class="nav-item">
@@ -132,7 +135,7 @@
                 <span class="icon-holder">
                   <i class="c-brown-500 ti-email"></i>
                 </span>
-                <span class="title">Email</span>
+                <span class="title">物业服务</span>
               </a>
             </li>
             <li class="nav-item">
@@ -140,7 +143,7 @@
                 <span class="icon-holder">
                   <i class="c-blue-500 ti-share"></i>
                 </span>
-                <span class="title">Compose</span>
+                <span class="title">预约收楼</span>
               </a>
             </li>
             <li class="nav-item">
@@ -148,7 +151,7 @@
                 <span class="icon-holder">
                   <i class="c-deep-orange-500 ti-calendar"></i>
                 </span>
-                <span class="title">Calendar</span>
+                <span class="title">App支付</span>
               </a>
             </li>
             <li class="nav-item">
@@ -156,7 +159,7 @@
                 <span class="icon-holder">
                   <i class="c-deep-purple-500 ti-comment-alt"></i>
                 </span>
-                <span class="title">Chat</span>
+                <span class="title">阅森活</span>
               </a>
             </li>
             <li class="nav-item">
@@ -680,7 +683,7 @@
                 <div class="bd bgc-white">
                   <div class="layers">
                     <div class="layer w-100 pX-20 pT-20">
-                      <h6 class="lh-1">Monthly Stats</h6>
+                      <h6 class="lh-1">各月份下载/认证情况</h6>
                     </div>
                     <div class="layer w-100 p-20">
                       <canvas id="line-chart" height="220"></canvas>
@@ -710,7 +713,7 @@
               </div>
               <div class="masonry-item col-md-6">
                 <!-- #Todo ==================== -->
-                <div class="bd bgc-white p-20">
+                <!-- <div class="bd bgc-white p-20">
                   <div class="layers">
                     <div class="layer w-100 mB-10">
                       <h6 class="lh-1">Todo List</h6>
@@ -782,6 +785,13 @@
                         </li>
                       </ul>
                     </div>
+                  </div>
+                </div> -->
+                <!-- #楼栋分布 ==================== -->
+                <div class="bgc-white p-20 bd">
+                  <h6 class="c-grey-900">各地块注册用户数</h6>
+                  <div class="mT-30">
+                    <canvas id="bar-chart" height="220"></canvas>
                   </div>
                 </div>
               </div>
@@ -864,225 +874,6 @@
                   </div>
                   <div class="ta-c bdT w-100 p-20">
                     <a href="#">Check all the sales</a>
-                  </div>
-                </div>
-              </div>
-              <div class="masonry-item col-md-6">
-                <!-- #Weather ==================== -->
-                <div class="bd bgc-white p-20">
-                  <div class="layers">
-                    <!-- Widget Title -->
-                    <div class="layer w-100 mB-20">
-                      <h6 class="lh-1">Weather</h6>
-                    </div>
-
-                    <!-- Today Weather -->
-                    <div class="layer w-100">
-                      <div class="peers ai-c jc-sb fxw-nw">
-                        <div class="peer peer-greed">
-                          <div class="layers">
-                            <!-- Temprature -->
-                            <div class="layer w-100">
-                              <div class="peers fxw-nw ai-c">
-                                <div class="peer mR-20">
-                                  <h3>32<sup>°F</sup></h3>
-                                </div>
-                                <div class="peer">
-                                  <canvas class="sleet" width="44" height="44"></canvas>
-                                </div>
-                              </div>
-                            </div>
-
-                            <!-- Condition -->
-                            <div class="layer w-100">
-                              <span class="fw-600 c-grey-600">Partly Clouds</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="peer">
-                          <div class="layers ai-fe">
-                            <div class="layer">
-                              <h5 class="mB-5">Monday</h5>
-                            </div>
-                            <div class="layer">
-                              <span class="fw-600 c-grey-600">Nov, 01 2017</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Today Weather Extended -->
-                    <div class="layer w-100 mY-30">
-                      <div class="layers bdB">
-                        <div class="layer w-100 bdT pY-5">
-                          <div class="peers ai-c jc-sb fxw-nw">
-                            <div class="peer">
-                              <span>Wind</span>
-                            </div>
-                            <div class="peer ta-r">
-                              <span class="fw-600 c-grey-800">10km/h</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layer w-100 bdT pY-5">
-                          <div class="peers ai-c jc-sb fxw-nw">
-                            <div class="peer">
-                              <span>Sunrise</span>
-                            </div>
-                            <div class="peer ta-r">
-                              <span class="fw-600 c-grey-800">05:00 AM</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="layer w-100 bdT pY-5">
-                          <div class="peers ai-c jc-sb fxw-nw">
-                            <div class="peer">
-                              <span>Pressure</span>
-                            </div>
-                            <div class="peer ta-r">
-                              <span class="fw-600 c-grey-800">1B</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Week Forecast -->
-                    <div class="layer w-100">
-                      <div class="peers peers-greed ai-fs ta-c">
-                        <div class="peer">
-                          <h6 class="mB-10">MON</h6>
-                          <canvas class="sleet" width="30" height="30"></canvas>
-                          <span class="d-b fw-600">32<sup>°F</sup></span>
-                        </div>
-                        <div class="peer">
-                          <h6 class="mB-10">TUE</h6>
-                          <canvas class="clear-day" width="30" height="30"></canvas>
-                          <span class="d-b fw-600">30<sup>°F</sup></span>
-                        </div>
-                        <div class="peer">
-                          <h6 class="mB-10">WED</h6>
-                          <canvas class="partly-cloudy-day" width="30" height="30"></canvas>
-                          <span class="d-b fw-600">28<sup>°F</sup></span>
-                        </div>
-                        <div class="peer">
-                          <h6 class="mB-10">THR</h6>
-                          <canvas class="cloudy" width="30" height="30"></canvas>
-                          <span class="d-b fw-600">32<sup>°F</sup></span>
-                        </div>
-                        <div class="peer">
-                          <h6 class="mB-10">FRI</h6>
-                          <canvas class="snow" width="30" height="30"></canvas>
-                          <span class="d-b fw-600">24<sup>°F</sup></span>
-                        </div>
-                        <div class="peer">
-                          <h6 class="mB-10">SAT</h6>
-                          <canvas class="wind" width="30" height="30"></canvas>
-                          <span class="d-b fw-600">28<sup>°F</sup></span>
-                        </div>
-                        <div class="peer">
-                          <h6 class="mB-10">SUN</h6>
-                          <canvas class="sleet" width="30" height="30"></canvas>
-                          <span class="d-b fw-600">32<sup>°F</sup></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="masonry-item col-md-6">
-                <!-- #Chat ==================== -->
-                <div class="bd bgc-white">
-                  <div class="layers">
-                    <div class="layer w-100 p-20">
-                      <h6 class="lh-1">Quick Chat</h6>
-                    </div>
-                    <div class="layer w-100">
-                      <!-- Chat Box -->
-                      <div class="bgc-grey-200 p-20 gapY-15">
-                        <!-- Chat Conversation -->
-                        <div class="peers fxw-nw">
-                          <div class="peer mR-20">
-                            <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-                          </div>
-                          <div class="peer peer-greed">
-                            <div class="layers ai-fs gapY-5">
-                              <div class="layer">
-                                <div class="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-                                  <div class="peer mR-10">
-                                    <small>10:00 AM</small>
-                                  </div>
-                                  <div class="peer-greed">
-                                    <span>Lorem Ipsum is simply dummy text of</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="layer">
-                                <div class="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-                                  <div class="peer mR-10">
-                                    <small>10:00 AM</small>
-                                  </div>
-                                  <div class="peer-greed">
-                                    <span>the printing and typesetting industry.</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="layer">
-                                <div class="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-                                  <div class="peer mR-10">
-                                    <small>10:00 AM</small>
-                                  </div>
-                                  <div class="peer-greed">
-                                    <span>Lorem Ipsum has been the industry's</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- Chat Conversation -->
-                        <div class="peers fxw-nw ai-fe">
-                          <div class="peer ord-1 mL-20">
-                            <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/12.jpg" alt="">
-                          </div>
-                          <div class="peer peer-greed ord-0">
-                            <div class="layers ai-fe gapY-10">
-                              <div class="layer">
-                                <div class="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-                                  <div class="peer mL-10 ord-1">
-                                    <small>10:00 AM</small>
-                                  </div>
-                                  <div class="peer-greed ord-0">
-                                    <span>Heloo</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="layer">
-                                <div class="peers fxw-nw ai-c pY-3 pX-10 bgc-white bdrs-2 lh-3/2">
-                                  <div class="peer mL-10 ord-1">
-                                    <small>10:00 AM</small>
-                                  </div>
-                                  <div class="peer-greed ord-0">
-                                    <span>??</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Chat Send -->
-                      <div class="p-20 bdT bgc-white">
-                        <div class="pos-r">
-                          <input type="text" class="form-control bdrs-10em m-0" placeholder="Say something...">
-                          <button type="button" class="btn btn-primary bdrs-50p w-2r p-0 h-2r pos-a r-1 t-1">
-                            <i class="fa fa-paper-plane-o"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
