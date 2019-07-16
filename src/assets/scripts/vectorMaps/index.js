@@ -1,6 +1,9 @@
 import * as $ from 'jquery';
-import 'jvectormap';
-import 'jvectormap/jquery-jvectormap.css';
+// import 'jvectormap';
+// import 'jvectormap/jquery-jvectormap.css';
+import './jquery-jvectormap.css';
+// import './jquery.jvectormap.min';
+import './jquery-jvectormap-max';
 import './jquery-jvectormap-world-mill.js';
 import { debounce } from 'lodash';
 
@@ -72,18 +75,29 @@ export default (function () {
             }],
           },
           onRegionTipShow: function(event, label, code){
-            label.html(
-              '<b>'+label.html()+'</b></br>'+
-              '<b>登录数: </b>'+ data[code] // typeof(data[code]) === "undefined" ? "0" : data[code]
-            );
+            console.log('label: ', label)
+            if (typeof(data[code]) === "undefined") {
+              label.html(
+                '<b>'+label.html()+'</b></br>'+
+                '<b>登录数: </b>'+ 0
+                );
+            } else {
+              label.html(
+                '<b>'+label.html()+'</b></br>'+
+                '<b>登录数: </b>'+ data[code] 
+              );
+            }
+          },
+          onRegionClick: function(event, code) {
+            console.log('code:', code)
           },
           hoverOpacity: null,
           normalizeFunction: 'linear',
-          zoomOnScroll: false,
+          zoomOnScroll: true,
           scaleColors: ['#b6d6ff', '#005ace'],
           selectedColor: '#c9dfaf',
           selectedRegions: [],
-          enableZoom: false,
+          enableZoom: true,
           hoverColor: '#fff',
         });
       });
