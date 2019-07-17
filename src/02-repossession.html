@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
     <title>预约收楼</title>
     <!--#include  "./common/style.html"--> 
     <div id="common-style"></div>
@@ -50,132 +54,7 @@
 
         <!-- ### $App Screen Content ### -->
         <main class='main-content bgc-grey-100'>
-          <div id='mainContent'>
-            <div class="full-container">
-              <div class="email-app">
-              <div class="email-side-nav remain-height ov-h">
-                <div class="h-100 layers">
-                  <div class="p-20 bgc-grey-100 layer w-100">
-                    <a href="/compose" class="btn btn-danger btn-block">New Message</a>
-                  </div>
-                  <div class="scrollable pos-r bdT layer w-100 fxg-1">
-                    <ul class="p-20 nav flex-column">
-                      <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link c-grey-800 cH-blue-500 actived">
-                          <div class="peers ai-c jc-sb">
-                            <div class="peer peer-greed">
-                              <i class="mR-10 ti-email"></i>
-                              <span>Inbox</span>
-                            </div>
-                            <div class="peer">
-                              <span class="badge badge-pill bgc-deep-purple-50 c-deep-purple-700">+99</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="" class="nav-link c-grey-800 cH-blue-500">
-                          <div class="peers ai-c jc-sb">
-                            <div class="peer peer-greed">
-                              <i class="mR-10 ti-share"></i>
-                              <span>Sent</span>
-                            </div>
-                            <div class="peer">
-                              <span class="badge badge-pill bgc-green-50 c-green-700">12</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="" class="nav-link c-grey-800 cH-blue-500">
-                          <div class="peers ai-c jc-sb">
-                            <div class="peer peer-greed">
-                              <i class="mR-10 ti-star"></i>
-                              <span>Important</span>
-                            </div>
-                            <div class="peer">
-                              <span class="badge badge-pill bgc-blue-50 c-blue-700">3</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="" class="nav-link c-grey-800 cH-blue-500">
-                          <div class="peers ai-c jc-sb">
-                            <div class="peer peer-greed">
-                              <i class="mR-10 ti-file"></i>
-                              <span>Drafts</span>
-                            </div>
-                            <div class="peer">
-                              <span class="badge badge-pill bgc-amber-50 c-amber-700">5</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="" class="nav-link c-grey-800 cH-blue-500">
-                          <div class="peers ai-c jc-sb">
-                            <div class="peer peer-greed">
-                              <i class="mR-10 ti-alert"></i>
-                              <span>Spam</span>
-                            </div>
-                            <div class="peer">
-                              <span class="badge badge-pill bgc-red-50 c-red-700">1</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="" class="nav-link c-grey-800 cH-blue-500">
-                          <div class="peers ai-c jc-sb">
-                            <div class="peer peer-greed">
-                              <i class="mR-10 ti-trash"></i>
-                              <span>Trash</span>
-                            </div>
-                            <div class="peer">
-                              <span class="badge badge-pill bgc-red-50 c-red-700">+99</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="email-wrapper row remain-height pos-r scrollable bgc-white">
-                <div class="email-content open no-inbox-view">
-                  <div class="email-compose">
-                    <div class="d-n@md+ p-20">
-                      <a class="email-side-toggle c-grey-900 cH-blue-500 td-n" href="javascript:void(0)">
-                        <i class="ti-menu"></i>
-                      </a>
-                    </div>
-                    <form class="email-compose-body">
-                      <h4 class="c-grey-900 mB-20">Send Message</h4>
-                      <div class="send-header">
-                        <div class="form-group">
-                          <input type="text" class='form-control' placeholder="To">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" class='form-control' placeholder="CC">
-                        </div>
-                        <div class="form-group">
-                          <input class="form-control" placeholder="Email Subject">
-                        </div>
-                        <div class="form-group">
-                          <textarea name="compose" class="form-control" placeholder="Say Hi..." rows='10'></textarea>
-                        </div>
-                      </div>
-                      <div id="compose-area"></div>
-                      <div class="text-right mrg-top-30">
-                        <button class="btn btn-danger">Send</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </div>
+          <div id='mainContent' style="height: 600%; width: 80%; align-content: center">
           </div>
         </main>
 
@@ -186,3 +65,78 @@
     </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  var dom = document.getElementById("mainContent");
+  var myChart = echarts.init(dom);
+  var app = {};
+  option = null;
+  
+  setTimeout(function () {
+  
+      option = {
+          legend: {},
+          tooltip: {
+              trigger: 'axis',
+              showContent: false
+          },
+          dataset: {
+              source: [
+                  ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
+                  ['Matcha Latte', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
+                  ['Milk Tea', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
+                  ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
+                  ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
+              ]
+          },
+          xAxis: {type: 'category'},
+          yAxis: {gridIndex: 0},
+          grid: {top: '55%'},
+          series: [
+              {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+              {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+              {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+              {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+              {
+                  type: 'pie',
+                  id: 'pie',
+                  radius: '30%',
+                  center: ['50%', '25%'],
+                  label: {
+                      formatter: '{b}: {@2012} ({d}%)'
+                  },
+                  encode: {
+                      itemName: 'product',
+                      value: '2012',
+                      tooltip: '2012'
+                  }
+              }
+          ]
+      };
+  
+      myChart.on('updateAxisPointer', function (event) {
+          var xAxisInfo = event.axesInfo[0];
+          if (xAxisInfo) {
+              var dimension = xAxisInfo.value + 1;
+              myChart.setOption({
+                  series: {
+                      id: 'pie',
+                      label: {
+                          formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                      },
+                      encode: {
+                          value: dimension,
+                          tooltip: dimension
+                      }
+                  }
+              });
+          }
+      });
+  
+      myChart.setOption(option);
+  
+  });;
+  if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+  }
+</script>
