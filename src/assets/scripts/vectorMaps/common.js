@@ -1,6 +1,6 @@
 const styleInit = () => {
   if ($('#common-style').length > 0) {
-    $('#vstyle').remove();
+    // $('#vstyle').remove();
     $('#common-style').append(`<style>
     #loader {
       transition: all 0.01s ease-in-out;
@@ -56,39 +56,42 @@ const styleInit = () => {
 
 const sidebarInit = () => {
   if ($('#common-sidebar').length > 0) {
-    $('#vside').remove();
+    // $('#vside').remove();
     $('#common-sidebar').append(`
     <div class="sidebar">
       <div class="sidebar-inner">
-        <!-- ### $Sidebar Header ### -->
-        <div class="sidebar-logo">
-          <div class="peers ai-c fxw-nw">
+      <div class="sidebar-logo">
+      <div class="peers ai-c fxw-nw">
+        <div class="peer peer-greed">
+          <a class="sidebar-link td-n" href="index.html">
             <div class="peer peer-greed">
-              <a class="sidebar-link td-n" href="index.html">
-                <div class="peers ai-c fxw-nw">
-                  <div class="peer">
-                    <div class="logo">
-                      <img src="assets/static/images/logo.png" alt="">
-                    </div>
-                  </div>
-                  <!-- <div class="peer peer-greed">
-                    <h5 class="lh-1 mB-0 logo-text">    智慧运营看板系统</h5>
-                  </div> -->
-                </div>
-                <div class="peer peer-greed">
-                  <h5 class="lh-1 mB-0 logo-text">    智慧运营看板系统</h5>
-                </div>
-              </a>
+            <h5 class="lh-1 mB-0 logo-text">&nbsp;</h5>
             </div>
-            <div class="peer">
-              <div class="mobile-toggle sidebar-toggle">
-                <a href="" class="td-n">
-                  <i class="ti-arrow-circle-left"></i>
-                </a>
+            <div class="peers ai-c fxw-nw">
+              <div class="peer">
+                <div class="logo">
+                  <img src="assets/static/images/logo.png" alt="">
+                </div>
+                <br />
+              </div>
+              <div class="peer peer-greed">
+                <h5 class="lh-1 mB-0 logo-text"> &nbsp;&nbsp;&nbsp;&nbsp;智慧运营看板系统</h5>
               </div>
             </div>
+            <div class="peer peer-greed">
+            <h5 class="lh-1 mB-0 logo-text">&nbsp;</h5>
+            </div>
+          </a>    
+        </div>
+        <div class="peer">
+          <div class="mobile-toggle sidebar-toggle">
+            <a href="" class="td-n">
+              <i class="ti-arrow-circle-left"></i>
+            </a>
           </div>
         </div>
+      </div>
+    </div>
 
         <!-- ### $Sidebar Menu ### -->
         <ul class="sidebar-menu scrollable pos-r">
@@ -264,7 +267,7 @@ const sidebarInit = () => {
 
 const topbarInit = () => {
   if ($('#common-topbar').length > 0) {
-    $('#vtopbar').remove();
+    // $('#vtopbar').remove();
     $('#common-topbar').append(`<div class="header navbar">
     <div class="header-container">
       <ul class="nav-left">

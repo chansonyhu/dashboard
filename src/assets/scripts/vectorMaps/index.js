@@ -19,7 +19,7 @@ export default (function () {
         <div
           id="vmap"
           style="
-            height: 490px;
+            height: 400px;
             position: relative;
             overflow: hidden;
             background-color: transparent;

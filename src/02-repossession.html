@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script> -->
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
     <title>预约收楼</title>
@@ -53,9 +53,40 @@
         <div id="common-topbar"></div>
 
         <!-- ### $App Screen Content ### -->
-        <main class='main-content bgc-grey-100'>
-          <div id='mainContent' style="height: 600%; width: 80%; align-content: center">
-          </div>
+        <main class='main-content bgc-grey-100 scrollable pos-r bdT layer'>
+            <div class="row gap-20 masonry pos-r">
+              <!-- 第1個item元件的寛度將定義所有元件初始寛度 -->
+              <div class="masonry-sizer col-md-6"></div>
+
+              <div class="masonry-item col-md-12">
+                  <!-- #Monthly Stats ==================== -->
+                  <div class="bd bgc-white">
+                    <div class="layers">
+                      <div class="layer w-100 pX-20 pT-20">
+                        <h6 class="lh-1">各地块物业服务情况</h6>
+                      </div>
+                      <div class="layer w-100 p-20">
+                          <!-- <canvas id='mainContent' height="400" width="500"></canvas> -->
+                          <div id='mainContent' style="height: 600%; width: 80%; align-content: center">
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              
+              <div class="masonry-item col-md-4">
+                  <div class="bd bgc-white">
+                      <div class="layers">
+                          <div class="layer w-100 p-20">
+                          </div>
+                      </div>
+                  </div>
+                <!-- <div class="full-container">
+                  <div class="property-app">
+                  </div>
+                </div> -->
+              </div>
+            </div>
         </main>
 
         <!-- ### $App Screen Footer ### -->
