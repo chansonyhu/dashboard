@@ -50,6 +50,20 @@ const styleInit = () => {
         opacity: 0;
       }
     }
+    .ShaShiDi{
+    width:500px;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+          /*为了效果明显，可以将如下边框打开，看一下效果*/
+    // border:1px solid black;
+    }
+
+    .ShaShiDi img{
+      width:100%;
+      height:auto;
+    }
   </style>`);
   }
 };
@@ -69,17 +83,17 @@ const sidebarInit = () => {
             </div>
             <div class="peers ai-c fxw-nw">
               <div class="peer">
-                <div class="logo">
+                <div class="logo ShaShiDi">
                   <img src="assets/static/images/logo.png" alt="">
                 </div>
                 <br />
               </div>
               <div class="peer peer-greed">
-                <h5 class="lh-1 mB-0 logo-text"> &nbsp;&nbsp;&nbsp;&nbsp;智慧运营看板系统</h5>
+                <h5 class="lh-1 mB-0 logo-text">智慧运营看板系统</h5>
               </div>
             </div>
             <div class="peer peer-greed">
-            <h5 class="lh-1 mB-0 logo-text">&nbsp;</h5>
+            <!-- <h5 class="lh-1 mB-0 logo-text">&nbsp;</h5> -->
             </div>
           </a>    
         </div>
@@ -494,6 +508,7 @@ const topbarInit = () => {
 const footerInit = () => {
   $('footer').append(`<span>Copyright © 2019 Powered by <a href="https://colorlib.com" target='_blank' title="Colorlib">Colorlib</a>. All rights reserved.</span>`);
 };
+
 styleInit();
 sidebarInit();
 topbarInit();

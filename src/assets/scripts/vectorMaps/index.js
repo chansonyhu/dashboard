@@ -106,7 +106,6 @@ export default (function () {
   };
 
   vectorMapInit();
-  $(window).resize(debounce(vectorMapInit, 150));
+  //$(window).resize(debounce(vectorMapInit, 150));
 
 })();
-

@@ -1,3 +1,6 @@
+import './repossession';
+import './property';
+import './vectorMaps';
 import '../styles/index.scss';
 
 import './masonry';
@@ -7,7 +10,6 @@ import './scrollbar';
 import './search';
 import './sidebar';
 import './skycons';
-import './vectorMaps';
 import './chat';
 import './datatable';
 import './datepicker';
