@@ -144,6 +144,6 @@ export default (function () {
     }
 };
     propertyInit();
-    $(window).resize(debounce(propertyInit, 150));
+    // $(window).resize(debounce(propertyInit, 150));
 
 })();

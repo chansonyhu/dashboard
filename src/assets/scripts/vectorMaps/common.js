@@ -149,6 +149,7 @@ const sidebarInit = () => {
               <span class="title">阅森活</span>
             </a>
           </li>
+          <!-- 注释不需要的tab
           <li class="nav-item">
             <a class='sidebar-link' href="charts.html">
               <span class="icon-holder">
@@ -273,6 +274,7 @@ const sidebarInit = () => {
               </li>
             </ul>
           </li>
+          注释不需要的页面 -->
         </ul>
       </div>
     </div>`);
@@ -301,6 +303,7 @@ const topbarInit = () => {
         </li>
       </ul>
       <ul class="nav-right">
+        <!-- 注释通知、邮件
         <li class="notifications dropdown">
           <span class="counter bgc-red">3</span>
           <a href="" class="dropdown-toggle no-after" data-toggle="dropdown">
@@ -462,6 +465,7 @@ const topbarInit = () => {
             </li>
           </ul>
         </li>
+        注释通知、邮件-->
         <li class="dropdown">
           <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
             <div class="peer mR-10">

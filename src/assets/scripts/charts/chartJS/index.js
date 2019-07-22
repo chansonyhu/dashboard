@@ -12,33 +12,45 @@ export default (function () {
     const lineCtx = lineChartBox.getContext('2d');
     lineChartBox.height = 80;
 
-    new Chart(lineCtx, {
-      type: 'line',
-      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          label                : '认证',
-          backgroundColor      : 'rgba(237, 231, 246, 0.5)',
-          borderColor          : COLORS['deep-purple-500'],
-          pointBackgroundColor : COLORS['deep-purple-700'],
-          borderWidth          : 2,
-          data                 : [60, 50, 70, 60, 50, 70, 60],
-        }, {
-          label                : '下载',
-          backgroundColor      : 'rgba(232, 245, 233, 0.5)',
-          borderColor          : COLORS['blue-500'],
-          pointBackgroundColor : COLORS['blue-700'],
-          borderWidth          : 2,
-          data                 : [70, 75, 85, 70, 75, 85, 70],
-        }],
-      },
-
-      options: {
-        legend: {
-          display: false,
+    $.getJSON('assets/static/data/APPuser.json', function(data){
+      var time_dist = data['Time distribute'];
+      var keys = [];
+      for (var x in time_dist ) {
+        keys.push(x);
+      }
+      keys.splice(0, keys.length - 7);
+      var values = [];
+      for (var i = 0; i < keys.length; i++) {
+        values.push(time_dist[keys[i]]);
+      }
+      new Chart(lineCtx, {
+        type: 'line',
+        data: {
+          labels: keys,
+          datasets: [{
+            label                : '下载',
+            backgroundColor      : 'rgba(237, 231, 246, 0.5)',
+            borderColor          : COLORS['deep-purple-500'],
+            pointBackgroundColor : COLORS['deep-purple-700'],
+            borderWidth          : 2,
+            data                 : values,
+          }, {
+            label                : '认证',
+            backgroundColor      : 'rgba(232, 245, 233, 0.5)',
+            borderColor          : COLORS['blue-500'],
+            pointBackgroundColor : COLORS['blue-700'],
+            borderWidth          : 2,
+            data                 : values,
+          }],
         },
-      },
 
+        options: {
+          legend: {
+            display: false,
+          },
+        },
+
+      });
     });
   }
 
@@ -50,32 +62,43 @@ export default (function () {
 
   if (barChartBox) {
     const barCtx = barChartBox.getContext('2d');
-
-    new Chart(barCtx, {
-      type: 'bar',
-      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          label           : 'Dataset 1',
-          backgroundColor : COLORS['deep-purple-500'],
-          borderColor     : COLORS['deep-purple-800'],
-          borderWidth     : 1,
-          data            : [10, 50, 20, 40, 60, 30, 70],
-        }, {
-          label           : 'Dataset 2',
-          backgroundColor : COLORS['light-blue-500'],
-          borderColor     : COLORS['light-blue-800'],
-          borderWidth     : 1,
-          data            : [10, 50, 20, 40, 60, 30, 70],
-        }],
-      },
-
-      options: {
-        responsive: true,
-        legend: {
-          position: 'bottom',
+    $.getJSON('assets/static/data/APPuser.json', function(data){
+      var loupan_dist = data['loupan distribute (cn)'];
+      var keys = [];
+      for (var x in loupan_dist) {
+        keys.push(x);
+      }
+      keys.splice(7, keys.length - 7);
+      var values = [];
+      for (var i = 0; i < keys.length; i++) {
+        values.push(loupan_dist[keys[i]]);
+      }
+      new Chart(barCtx, {
+        type: 'bar',
+        data: {
+          labels: keys,
+          datasets: [{
+            label           : 'Dataset 1',
+            backgroundColor : COLORS['deep-purple-500'],
+            borderColor     : COLORS['deep-purple-800'],
+            borderWidth     : 1,
+            data            : values,
+          }, {
+            label           : 'Dataset 2',
+            backgroundColor : COLORS['light-blue-500'],
+            borderColor     : COLORS['light-blue-800'],
+            borderWidth     : 1,
+            data            : values,
+          }],
         },
-      },
+
+        options: {
+          responsive: true,
+          legend: {
+            position: 'bottom',
+          },
+        },
+      });
     });
   }
 

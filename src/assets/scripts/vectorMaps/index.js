@@ -27,7 +27,8 @@ export default (function () {
         >
         </div>
       `);
-      $.getJSON('assets/static/data/login_country.json', function(data){
+      $.getJSON('assets/static/data/APPuser.json', function(data){
+        var entire_country_dist = data['Entire country distribute'];
         $('#vmap').vectorMap({
           map: 'world_mill',
           backgroundColor: '#fff',
@@ -70,14 +71,13 @@ export default (function () {
           // }],
           series: {
             regions: [{
-              values: data,
+              values: entire_country_dist,
               scale: ['#C8EEFF', '#0071A4'],
               normalizeFunction: 'polynomial',
             }],
           },
           onRegionTipShow: function(event, label, code){
-            console.log('label: ', label)
-            if (typeof(data[code]) === "undefined") {
+            if (typeof(entire_country_dist[code]) === "undefined") {
               label.html(
                 '<b>'+label.html()+'</b></br>'+
                 '<b>登录数: </b>'+ 0
@@ -85,7 +85,7 @@ export default (function () {
             } else {
               label.html(
                 '<b>'+label.html()+'</b></br>'+
-                '<b>登录数: </b>'+ data[code] 
+                '<b>登录数: </b>'+ entire_country_dist[code] 
               );
             }
           },
@@ -109,3 +109,43 @@ export default (function () {
   //$(window).resize(debounce(vectorMapInit, 150));
 
 })();
+$.getJSON('assets/static/data/APPuser.json', function(data){
+  var entire_country_dist = data['Entire country distribute'];
+  $('#cn_user').append(entire_country_dist['CN']);
+  $('#my_user').append(entire_country_dist['MY']);
+  var total_login = 0;
+  for (var key in entire_country_dist) {
+    total_login += entire_country_dist[key];
+  }
+  $('#total_login').append(total_login);
+
+  var other_user;
+  other_user = total_login - entire_country_dist['CN'] - entire_country_dist['MY'];
+  $('#other_user').append(other_user);
+
+  var cn_prop = (entire_country_dist['CN']/total_login * 100).toFixed(1);
+  var my_prop = (entire_country_dist['MY']/total_login * 100).toFixed(1);
+  var other_prop = (other_user/total_login * 100).toFixed(1);
+  $('#cn_prop').append(cn_prop + '%');
+  $('#my_prop').append(my_prop + '%');
+  $('#other_prop').append(other_prop + '%');
+
+  $('#cn_progress').append(`
+  <div class="progress mT-10">
+  <div class="progress-bar bgc-deep-purple-500" role="progressbar" aria-valuenow="`
+  + cn_prop +`" aria-valuemin="0" aria-valuemax="100" style="width:` + cn_prop + `%;"> <span class="sr-only">` + cn_prop + `% Complete</span></div>
+  </div>
+  `);
+  $('#my_progress').append(`
+  <div class="progress mT-10">
+  <div class="progress-bar bgc-green-500" role="progressbar" aria-valuenow="`
+  + my_prop +`" aria-valuemin="0" aria-valuemax="100" style="width:` + my_prop + `%;"> <span class="sr-only">` + my_prop + `% Complete</span></div>
+  </div>
+  `);
+  $('#other_progress').append(`
+  <div class="progress mT-10">
+  <div class="progress-bar bgc-light-blue-500" role="progressbar" aria-valuenow="`
+  + other_prop +`" aria-valuemin="0" aria-valuemax="100" style="width:` + other_prop + `%;"> <span class="sr-only">` + other_prop + `% Complete</span></div>
+  </div>
+  `);
+});
