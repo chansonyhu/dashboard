@@ -2,6 +2,7 @@ import './repossession';
 import './property';
 import './vectorMaps';
 import '../styles/index.scss';
+import './signin';
 
 import './masonry';
 import './charts';

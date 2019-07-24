@@ -35,6 +35,7 @@ plugins.push(
   }),
 
   new webpack.optimize.CommonsChunkPlugin({
+  //new config.optimization.splitChunks({
     name: 'vendor',
     filename: manifest.outputFiles.vendor,
     minChunks(module) {

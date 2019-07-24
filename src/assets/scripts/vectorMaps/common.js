@@ -1,4 +1,5 @@
 const styleInit = () => {
+  //var exports = {"__esModule": true};
   if ($('#common-style').length > 0) {
     // $('#vstyle').remove();
     $('#common-style').append(`<style>
