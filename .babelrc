@@ -9,7 +9,7 @@
   "sourceType": 'unambiguous',
   "presets": [
     ["@babel/env", {
-      "modules": 'commonjs'
+      //"modules": 'umd'
     }]
     //"@babel/stage-0"
   ]

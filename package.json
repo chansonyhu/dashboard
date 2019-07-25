@@ -45,8 +45,8 @@
     "style-loader": "^0.19.0",
     "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0",
-    "webpack": "^2.2.0-rc",
-    "webpack-dashboard": "^1.0.0",
+    "webpack": "^2.2.0-rc.6",
+    "webpack-dashboard": "^3.0.0",
     "webpack-dev-server": "^2.9.3",
     "webpack-node-externals": "1.7.2"
   },
