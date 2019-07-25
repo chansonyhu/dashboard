@@ -1,4 +1,16 @@
 {
   "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-modules-umd",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-transform-modules-commonjs",
+    "@babel/plugin-proposal-object-rest-spread"
+  ],
+  "sourceType": 'unambiguous',
+  "presets": [
+    ["@babel/env", {
+      "modules": 'commonjs'
+    }]
+    //"@babel/stage-0"
   ]
 }
