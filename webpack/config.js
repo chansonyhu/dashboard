@@ -21,7 +21,6 @@ const
   rules     = require('./rules'),
   plugins   = require('./plugins');
 
-  nodeExternals = require('webpack-node-externals')
 
 // ------------------
 // @Entry Point Setup
@@ -51,17 +50,12 @@ const resolve = {
 // -----------------
 
 module.exports = {
-  node: {
+node: {
     fs: 'empty',
     tls: 'empty',
     net: 'empty'
   },
-  target: 'node',
-  node: {
-    // Need this when working with express, otherwise the build fails
-    __dirname: false,   // if you don't put this is, __dirname
-    __filename: false,  // and __filename return blank or /
-  },
+
   devtool: manifest.IS_PRODUCTION ? false : 'cheap-eval-source-map',
   context: path.join(manifest.paths.src, manifest.entries.js),
   watch: !manifest.IS_PRODUCTION,
@@ -77,8 +71,5 @@ module.exports = {
   resolve,
   plugins,
   devServer,
-  externals: [
-    nodeExternals()
-  ]
 };
 

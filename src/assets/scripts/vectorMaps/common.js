@@ -119,11 +119,11 @@ const sidebarInit = () => {
             </a>
           </li>
           <li class="nav-item">
-            <a class='sidebar-link' href="01-property.html">
+            <a class='sidebar-link' href="01-coupon.html">
               <span class="icon-holder">
                 <i class="c-brown-500 ti-email"></i>
               </span>
-              <span class="title">物业服务</span>
+              <span class="title">收楼优惠券</span>
             </a>
           </li>
           <li class="nav-item">
@@ -142,6 +142,7 @@ const sidebarInit = () => {
               <span class="title">App支付</span>
             </a>
           </li>
+          <!-- 注释不需要的tab
           <li class="nav-item">
             <a class='sidebar-link' href="04-reading.html">
               <span class="icon-holder">
@@ -150,7 +151,7 @@ const sidebarInit = () => {
               <span class="title">阅森活</span>
             </a>
           </li>
-          <!-- 注释不需要的tab
+          
           <li class="nav-item">
             <a class='sidebar-link' href="charts.html">
               <span class="icon-holder">
@@ -461,7 +462,7 @@ const topbarInit = () => {
             </li>
             <li class="pX-20 pY-15 ta-c bdT">
               <span>
-                <a href="01-property.html" class="c-grey-600 cH-blue fsz-sm td-n">View All Email <i class="fs-xs ti-angle-right mL-10"></i></a>
+                <a href="01-coupon.html" class="c-grey-600 cH-blue fsz-sm td-n">View All Email <i class="fs-xs ti-angle-right mL-10"></i></a>
               </span>
             </li>
           </ul>
@@ -490,7 +491,7 @@ const topbarInit = () => {
               </a>
             </li>
             <li>
-              <a href="01-property.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+              <a href="01-coupon.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                 <i class="ti-email mR-10"></i>
                 <span>Messages</span>
               </a>

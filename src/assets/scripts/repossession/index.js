@@ -26,67 +26,96 @@ export default (function () {
         var option = null;
         
         setTimeout(function () {
-        
-            option = {
-                legend: {},
-                tooltip: {
-                    trigger: 'axis',
-                    showContent: false
-                },
-                dataset: {
-                    source: [
-                        ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
-                        ['Matcha Latte', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
-                        ['Milk Tea', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
-                        ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
-                        ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
-                    ]
-                },
-                xAxis: {type: 'category'},
-                yAxis: {gridIndex: 0},
-                grid: {top: '55%'},
-                series: [
-                    {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                    {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                    {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                    {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                    {
-                        type: 'pie',
-                        id: 'pie',
-                        radius: '30%',
-                        center: ['50%', '25%'],
-                        label: {
-                            formatter: '{b}: {@2012} ({d}%)'
-                        },
-                        encode: {
-                            itemName: 'product',
-                            value: '2012',
-                            tooltip: '2012'
-                        }
+            $.getJSON('assets/static/data/reserve_apartment.json', function(data){
+                var catelog = data['Set']["Chinese"];
+                var time_series = [];
+                time_series.push('product');
+                for (var k in data) {
+                    if(k !== 'Set')
+                    time_series.push(k);
+                }
+                var num_of_catelog = 5;
+                var num_of_months = time_series.length - 1;
+
+                var values = [];
+                for(var c in catelog) {
+                    values[c] = []
+                    values[c].push(catelog[c]);
+                }
+
+                for (var i = 1; i <= num_of_months; i++) {
+                    var dataByMonth = data[time_series[i]]["Chinese"];
+                    for(var k in catelog) {
+                        var c = catelog[k];
+                        values[k].push(dataByMonth[c]);
                     }
-                ]
-            };
-        
-            myChart.on('updateAxisPointer', function (event) {
-                var xAxisInfo = event.axesInfo[0];
-                if (xAxisInfo) {
-                    var dimension = xAxisInfo.value + 1;
-                    myChart.setOption({
-                        series: {
+                }
+                option = {
+                    legend: {},
+                    tooltip: {
+                        trigger: 'axis',
+                        showContent: true
+                    },
+                    dataset: {
+                        source: [
+                            time_series,
+                            values[0],
+                            values[1],
+                            values[2],
+                            values[3],
+                            values[4]
+                        ]
+                    },
+                    xAxis: {type: 'category'},
+                    yAxis: {gridIndex: 0},
+                    grid: {top: '55%'},
+                    series: [
+                        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                        {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                        {
+                            type: 'pie',
                             id: 'pie',
+                            radius: '30%',
+                            center: ['50%', '25%'],
                             label: {
-                                formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                                formatter: '{b}: {@2018-08} ({d}%)'
                             },
                             encode: {
-                                value: dimension,
-                                tooltip: dimension
+                                itemName: 'product',
+                                value: '2018-08',
+                                tooltip: '2018-08'
                             }
                         }
-                    });
-                }
-            });
+                    ]
+                };
         
-            myChart.setOption(option);
+                myChart.on('updateAxisPointer', function (event) {
+                    var xAxisInfo = event.axesInfo[0];
+                    if (xAxisInfo) {
+                        var dimension = xAxisInfo.value + 1;
+                        myChart.setOption({
+                            series: {
+                                id: 'pie',
+                                label: {
+                                    formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                                },
+                                encode: {
+                                    value: dimension,
+                                    tooltip: dimension
+                                }
+                            }
+                        });
+                    }
+                });
+            
+                console.log('option:', option);
+                myChart.setOption(option);
+
+
+            });
         
         });;
         if (option && typeof option === "object") {

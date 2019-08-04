@@ -12,7 +12,7 @@ export default (function () {
     const lineCtx = lineChartBox.getContext('2d');
     lineChartBox.height = 80;
 
-    $.getJSON('assets/static/data/APPuser.json', function(data){
+    $.getJSON('assets/static/data/APPuser_distribute.json', function(data){
       var time_dist = data['Time distribute'];
       var keys = [];
       for (var x in time_dist ) {
@@ -62,8 +62,8 @@ export default (function () {
 
   if (barChartBox) {
     const barCtx = barChartBox.getContext('2d');
-    $.getJSON('assets/static/data/APPuser.json', function(data){
-      var loupan_dist = data['loupan distribute (cn)'];
+    $.getJSON('assets/static/data/APPuser_distribute.json', function(data){
+      var loupan_dist = data['loupan distribute chinese'];
       var keys = [];
       for (var x in loupan_dist) {
         keys.push(x);

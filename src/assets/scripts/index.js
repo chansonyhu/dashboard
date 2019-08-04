@@ -1,5 +1,5 @@
 import './repossession';
-import './property';
+import './coupon';
 import './vectorMaps';
 import '../styles/index.scss';
 import './signin';

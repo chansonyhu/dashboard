@@ -5,7 +5,7 @@ const
 
 const titles = {
   'index': '智慧运营看板系统',
-  '01-property': '物业服务',
+  '01-coupon': '收楼优惠券',
   '02-repossession': '预约收楼',
   '03-app_payment': 'App支付',
   '04-reading': '阅森活',

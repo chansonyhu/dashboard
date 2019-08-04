@@ -27,7 +27,7 @@ export default (function () {
         >
         </div>
       `);
-      $.getJSON('assets/static/data/APPuser.json', function(data){
+      $.getJSON('assets/static/data/APPuser_distribute.json', function(data){
         var entire_country_dist = data['Entire country distribute'];
         $('#vmap').vectorMap({
           map: 'world_mill',
@@ -109,7 +109,7 @@ export default (function () {
   //$(window).resize(debounce(vectorMapInit, 150));
 
 })();
-$.getJSON('assets/static/data/APPuser.json', function(data){
+$.getJSON('assets/static/data/APPuser_distribute.json', function(data){
   var entire_country_dist = data['Entire country distribute'];
   $('#cn_user').append(entire_country_dist['CN']);
   $('#my_user').append(entire_country_dist['MY']);

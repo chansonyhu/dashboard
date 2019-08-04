@@ -48,14 +48,15 @@ export default (function () {
                 <span class="title">App情况</span>
               </a>
             </li>
+            <!--
             <li class="nav-item">
-              <a class='sidebar-link' href="01-property.html">
+              <a class='sidebar-link' href="01-coupon.html">
                 <span class="icon-holder">
                   <i class="c-brown-500 ti-email"></i>
                 </span>
-                <span class="title">物业服务</span>
+                <span class="title">收楼优惠券</span>
               </a>
-            </li>
+            </li>-->
             <li class="nav-item">
               <a class='sidebar-link' href="02-repossession.html">
                 <span class="icon-holder">
@@ -72,6 +73,7 @@ export default (function () {
                 <span class="title">App支付</span>
               </a>
             </li>
+            <!--
             <li class="nav-item">
               <a class='sidebar-link' href="04-reading.html">
                 <span class="icon-holder">
@@ -79,7 +81,7 @@ export default (function () {
                 </span>
                 <span class="title">阅森活</span>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class='sidebar-link' href="charts.html">
                 <span class="icon-holder">
@@ -250,14 +252,15 @@ export default (function () {
                 <span class="title">App情况</span>
               </a>
             </li>
+            <!--
             <li class="nav-item">
-              <a class='sidebar-link' href="01-property.html">
+              <a class='sidebar-link' href="01-coupon.html">
                 <span class="icon-holder">
                   <i class="c-brown-500 ti-email"></i>
                 </span>
-                <span class="title">物业服务</span>
+                <span class="title">收楼优惠券</span>
               </a>
-            </li>
+            </li>-->
             <li class="nav-item">
               <a class='sidebar-link' href="02-repossession.html">
                 <span class="icon-holder">
@@ -274,6 +277,7 @@ export default (function () {
                 <span class="title">App支付</span>
               </a>
             </li>
+            <!--
             <li class="nav-item">
               <a class='sidebar-link' href="04-reading.html">
                 <span class="icon-holder">
@@ -281,7 +285,7 @@ export default (function () {
                 </span>
                 <span class="title">阅森活</span>
               </a>
-            </li>
+            </li>-->
             <li class="nav-item">
               <a class='sidebar-link' href="charts.html">
                 <span class="icon-holder">
