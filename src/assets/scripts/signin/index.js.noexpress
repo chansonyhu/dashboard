@@ -7,12 +7,12 @@ import mysql from 'mysql';
 
 // console.log(path.join(__dirname + '/signin.html'));
 
-var connection = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '941216yqs',
-	database : 'nodelogin'
-});
+// var connection = mysql.createConnection({
+// 	host     : 'localhost',
+// 	user     : 'root',
+// 	password : '941216yqs',
+// 	database : 'nodelogin'
+// });
 
 // console.log('express start');
 // var app = express();
@@ -60,17 +60,19 @@ function validate() {
 	var password = document.getElementById("password").value;
 	console.log(username, '\n', password);
 	if (username && password) {
-		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-			if (results.length > 0) {
-				window.location = "index.html"; 
+		// window.location = "index.html"; 
+
+		// connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+			// if (results.length > 0) {
+				// window.location = "index.html"; 
 				// request.session.loggedin = true;
 				// request.session.username = username;
 				// response.redirect('/index.html');
-			} else {
-				alert('Incorrect Username and/or Password!');
-			}			
+			// } else {
+				// alert('Incorrect Username and/or Password!');
+			// }			
 			// response.end();
-		});
+		// });
 	} else {
 		alert('Please enter Username and Password!');
 		// response.end();
