@@ -165,9 +165,6 @@ export default (function () {
                   <a class='sidebar-link' href="500.html">500</a>
                 </li>
                 <li>
-                  <a class='sidebar-link' href="signin.html">Sign In</a>
-                </li>
-                <li>
                   <a class='sidebar-link' href="signup.html">Sign Up</a>
                 </li>
               </ul>
@@ -367,9 +364,6 @@ export default (function () {
                 </li>
                 <li>
                   <a class='sidebar-link' href="500.html">500</a>
-                </li>
-                <li>
-                  <a class='sidebar-link' href="signin.html">Sign In</a>
                 </li>
                 <li>
                   <a class='sidebar-link' href="signup.html">Sign Up</a>

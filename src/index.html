@@ -3,419 +3,112 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-    <!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script> -->
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-    <title>智慧运营看板系统</title>
-    <div id="common-style"></div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- <meta http-equiv="Content-Security-Policy" content="font-src 'self' 'unsafe-inline' data:; style-src 'self' 'unsafe-inline' data:;img-src 'self' data:; default-src 'self' http://121.0.0:3000/"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data: fonts.gstatic.com;"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';"> -->
+    <title>登录</title>
+    <style>
+      #loader {
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        z-index: 90000;
+      }
+
+      #loader.fadeOut {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+        animation: sk-scaleout 1.0s infinite ease-in-out;
+      }
+
+      @-webkit-keyframes sk-scaleout {
+        0% { -webkit-transform: scale(0) }
+        100% {
+          -webkit-transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+
+      @keyframes sk-scaleout {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+        } 100% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+          opacity: 0;
+        }
+      }
+    </style>
   </head>
   <body class="app">
-    <!-- @TOC -->
-    <!-- =================================================== -->
-    <!--
-      + @Page Loader
-      + @App Content
-          - #Left Sidebar
-              > $Sidebar Header
-              > $Sidebar Menu
-
-          - #Main
-              > $Topbar
-              > $App Screen Content
-    -->
-
-    <!-- @Page Loader -->
-    <!-- =================================================== -->
     <div id='loader'>
       <div class="spinner"></div>
     </div>
-
-    <script>
-      window.addEventListener('load', function load() {
-        const loader = document.getElementById('loader');
-        setTimeout(function() {
-          loader.classList.add('fadeOut');
-        }, 300);
-      });
-    </script>
-
-    <!-- @App Content -->
-    <!-- =================================================== -->
-    <div>
-      <!-- #Left Sidebar ==================== -->
-      <!--#include  file="/common/sidebar.html"--> 
-      <!-- <script type="text/javascript" src="/sidebar.js"></script>
-      <script>
-          document.getElementById('#containing-element').innerHTML(common_sidebar);
-      </script> -->
-      <div id="common-sidebar"></div>
-      <!-- #Main ============================ -->
-      <div class="page-container">
-        <!-- ### $Topbar ### -->
-        <div id="common-topbar"></div>
-
-        <!-- ### $App Screen Content ### -->
-        <main class='main-content bgc-grey-100'>
-          <div id='mainContent'>
-            <div class="row gap-20 masonry pos-r">
-              <!-- 第1個item元件的寛度將定義所有元件初始寛度 -->
-              <div class="masonry-sizer col-md-6"></div>
-              <div class="masonry-item  w-100">
-                <div class="row gap-20">
-                  <!-- #Total Visits ==================== -->
-                  <div class='col-md-3'>
-                    <div class="layers bd bgc-white p-20">
-                      <div class="layer w-100 mB-10">
-                        <h6 class="lh-1">总登录数</h6>
-                      </div>
-                      <div class="layer w-100">
-                        <div class="peers ai-sb fxw-nw">
-                          <div class="peer peer-greed">
-                            <span id="sparklinedash"></span>
-                          </div>
-                          <div class="peer">
-                            <span id="total_login" class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500"></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- #Total Page Views ==================== -->
-                  <div class='col-md-3'>
-                    <div class="layers bd bgc-white p-20">
-                      <div class="layer w-100 mB-10">
-                        <h6 class="lh-1">Total Page Views</h6>
-                      </div>
-                      <div class="layer w-100">
-                        <div class="peers ai-sb fxw-nw">
-                          <div class="peer peer-greed">
-                            <span id="sparklinedash2"></span>
-                          </div>
-                          <div class="peer">
-                            <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">-7%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- #Unique Visitors ==================== -->
-                  <div class='col-md-3'>
-                    <div class="layers bd bgc-white p-20">
-                      <div class="layer w-100 mB-10">
-                        <h6 class="lh-1">Unique Visitor</h6>
-                      </div>
-                      <div class="layer w-100">
-                        <div class="peers ai-sb fxw-nw">
-                          <div class="peer peer-greed">
-                            <span id="sparklinedash3"></span>
-                          </div>
-                          <div class="peer">
-                            <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-purple-50 c-purple-500">~12%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- #Bounce Rate ==================== -->
-                  <div class='col-md-3'>
-                    <div class="layers bd bgc-white p-20">
-                      <div class="layer w-100 mB-10">
-                        <h6 class="lh-1">Bounce Rate</h6>
-                      </div>
-                      <div class="layer w-100">
-                        <div class="peers ai-sb fxw-nw">
-                          <div class="peer peer-greed">
-                            <span id="sparklinedash4"></span>
-                          </div>
-                          <div class="peer">
-                            <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">33%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+    <div class="peers ai-s fxw-nw h-100vh">
+      <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv" style='background-image: url("assets/static/images/bg.jpg")'>
+        <div class="pos-a centerXY">
+          <div class="bgc-white bdrs-50p pos-r" style='width: 120px; height: 120px;'>
+            <img class="pos-a centerXY" src="/assets/static/images/logo.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style='min-width: 320px;'>
+        <h4 class="fw-300 c-grey-900 mB-40">登录</h4>
+        <form name="login">
+          <div class="form-group">
+            <label class="text-normal text-dark">用户名</label>
+            <input id="dash_username" type="text" class="form-control" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <label class="text-normal text-dark">密码</label>
+            <input id="dash_password" type="password" class="form-control" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <div class="peers ai-c jc-sb fxw-nw">
+              <div class="peer">
+                <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                  <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                  <label for="inputCall1" class=" peers peer-greed js-sb ai-c">
+                    <span class="peer peer-greed">记住我</span>
+                  </label>
                 </div>
               </div>
-              <div class="masonry-item col-12">
-                <!-- #Site Visits ==================== -->
-                <div class="bd bgc-white">
-                  <div class="peers fxw-nw@lg+ ai-s">
-                    <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
-                      <div class="layers">
-                        <div class="layer w-100 mB-10">
-                          <h6 class="lh-1">登录数</h6>
-                        </div>
-                        <div class="layer w-100">
-                          <div id="world-map-marker"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="peer bdL p-20 w-30p@lg+ w-100p@lg-">
-                      <div class="layers">
-                        <div class="layer w-100">
-                          <!-- Progress Bars -->
-                          <div class="layers">
-                            <div class="layer w-100">
-                              <h5 id="cn_user" class="mB-5"></h5>
-                              <small class="fw-600 c-grey-700">中国用户</small>
-                              <span id="cn_prop" class="pull-right c-grey-600 fsz-sm"></span>
-                              <div id='cn_progress'>
-                              </div>
-                            </div>
-                            <div class="layer w-100 mT-15">
-                              <h5 id="my_user" class="mB-5"></h5>
-                              <small class="fw-600 c-grey-700">马来西亚用户</small>
-                              <span id="my_prop" class="pull-right c-grey-600 fsz-sm"></span>
-                              <div id='my_progress'>
-                              </div>
-                            </div>
-                            <div class="layer w-100 mT-15">
-                              <h5 id='other_user' class="mB-5"></h5>
-                              <small class="fw-600 c-grey-700">其他用户</small>
-                              <span id='other_prop' class="pull-right c-grey-600 fsz-sm"></span>
-                              <div id='other_progress'>
-                              </div>
-                            </div>
-                          </div>
-
-                          <!-- Pie Charts -->
-                          <div class="peers pT-20 mT-20 bdT fxw-nw@lg+ jc-sb ta-c gap-10">
-                            <div class="peer">
-                              <div class="easy-pie-chart" data-size='80' data-percent="82.8" data-bar-color='#f44336'>
-                                <span></span>
-                              </div>
-                              <h6 class="fsz-sm">中国用户</h6>
-                            </div>
-                            <div class="peer">
-                              <div class="easy-pie-chart" data-size='80' data-percent="10.5" data-bar-color='#2196f3'>
-                                <span></span>
-                              </div>
-                              <h6 class="fsz-sm">马来西亚用户</h6>
-                            </div>
-                            <div class="peer">
-                              <div class="easy-pie-chart" data-size='80' data-percent="6.8" data-bar-color='#ff9800'>
-                                <span></span>
-                              </div>
-                              <h6 class="fsz-sm">其他</h6>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="masonry-item col-md-6">
-                <!-- #Monthly Stats ==================== -->
-                <div class="bd bgc-white">
-                  <div class="layers">
-                    <div class="layer w-100 pX-20 pT-20">
-                      <h6 class="lh-1">各月份下载/认证情况</h6>
-                    </div>
-                    <div class="layer w-100 p-20">
-                      <canvas id="line-chart" height="220"></canvas>
-                    </div>
-                    <div class="layer bdT p-20 w-100">
-                      <div class="peers ai-c jc-c gapX-20">
-                        <div class="peer">
-                          <span class="fsz-def fw-600 mR-10 c-grey-800">10% <i class="fa fa-level-up c-green-500"></i></span>
-                          <small class="c-grey-500 fw-600">APPL</small>
-                        </div>
-                        <div class="peer fw-600">
-                          <span class="fsz-def fw-600 mR-10 c-grey-800">2% <i class="fa fa-level-down c-red-500"></i></span>
-                          <small class="c-grey-500 fw-600">Average</small>
-                        </div>
-                        <div class="peer fw-600">
-                          <span class="fsz-def fw-600 mR-10 c-grey-800">15% <i class="fa fa-level-up c-green-500"></i></span>
-                          <small class="c-grey-500 fw-600">Sales</small>
-                        </div>
-                        <div class="peer fw-600">
-                          <span class="fsz-def fw-600 mR-10 c-grey-800">8% <i class="fa fa-level-down c-red-500"></i></span>
-                          <small class="c-grey-500 fw-600">Profit</small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="masonry-item col-md-6">
-                <!-- #Todo ==================== -->
-                <!-- <div class="bd bgc-white p-20">
-                  <div class="layers">
-                    <div class="layer w-100 mB-10">
-                      <h6 class="lh-1">Todo List</h6>
-                    </div>
-                    <div class="layer w-100">
-                      <ul class="list-task list-group" data-role="tasklist">
-                        <li class="list-group-item bdw-0" data-role="task">
-                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
-                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c">
-                              <span class="peer peer-greed">Call John for Dinner</span>
-                            </label>
-                          </div>
-                        </li>
-                        <li class="list-group-item bdw-0" data-role="task">
-                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-                            <input type="checkbox" id="inputCall2" name="inputCheckboxesCall" class="peer">
-                            <label for="inputCall2" class=" peers peer-greed js-sb ai-c">
-                              <span class="peer peer-greed">Book Boss Flight</span>
-                              <span class="peer">
-                                <span class="badge badge-pill fl-r badge-success lh-0 p-10">2 Days</span>
-                              </span>
-                            </label>
-                          </div>
-                        </li>
-                        <li class="list-group-item bdw-0" data-role="task">
-                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-                            <input type="checkbox" id="inputCall3" name="inputCheckboxesCall" class="peer">
-                            <label for="inputCall3" class=" peers peer-greed js-sb ai-c">
-                              <span class="peer peer-greed">Hit the Gym</span>
-                              <span class="peer">
-                                <span class="badge badge-pill fl-r badge-danger lh-0 p-10">3 Minutes</span>
-                              </span>
-                            </label>
-                          </div>
-                        </li>
-                        <li class="list-group-item bdw-0" data-role="task">
-                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-                            <input type="checkbox" id="inputCall4" name="inputCheckboxesCall" class="peer">
-                            <label for="inputCall4" class=" peers peer-greed js-sb ai-c">
-                              <span class="peer peer-greed">Give Purchase Report</span>
-                              <span class="peer">
-                                <span class="badge badge-pill fl-r badge-warning lh-0 p-10">not important</span>
-                              </span>
-                            </label>
-                          </div>
-                        </li>
-                        <li class="list-group-item bdw-0" data-role="task">
-                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-                            <input type="checkbox" id="inputCall5" name="inputCheckboxesCall" class="peer">
-                            <label for="inputCall5" class=" peers peer-greed js-sb ai-c">
-                              <span class="peer peer-greed">Watch Game of Thrones Episode</span>
-                              <span class="peer">
-                                <span class="badge badge-pill fl-r badge-info lh-0 p-10">Tomorrow</span>
-                              </span>
-                            </label>
-                          </div>
-                        </li>
-                        <li class="list-group-item bdw-0" data-role="task">
-                          <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-                            <input type="checkbox" id="inputCall6" name="inputCheckboxesCall" class="peer">
-                            <label for="inputCall6" class=" peers peer-greed js-sb ai-c">
-                              <span class="peer peer-greed">Give Purchase report</span>
-                              <span class="peer">
-                                <span class="badge badge-pill fl-r badge-success lh-0 p-10">Done</span>
-                              </span>
-                            </label>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div> -->
-                <!-- #楼栋分布 ==================== -->
-                <div class="bgc-white p-20 bd">
-                  <h6 class="c-grey-900">各地块上月注册用户数</h6>
-                  <div class="mT-30">
-                    <canvas id="bar-chart" height="220"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="masonry-item col-md-6">
-                <!-- #Sales Report ==================== -->
-                <div class="bd bgc-white">
-                  <div class="layers">
-                    <div class="layer w-100 p-20">
-                      <h6 class="lh-1">Sales Report</h6>
-                    </div>
-                    <div class="layer w-100">
-                      <div class="bgc-light-blue-500 c-white p-20">
-                        <div class="peers ai-c jc-sb gap-40">
-                          <div class="peer peer-greed">
-                            <h5>November 2017</h5>
-                            <p class="mB-0">Sales Report</p>
-                          </div>
-                          <div class="peer">
-                            <h3 class="text-right">$6,000</h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="table-responsive p-20">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th class=" bdwT-0">Name</th>
-                              <th class=" bdwT-0">Status</th>
-                              <th class=" bdwT-0">Date</th>
-                              <th class=" bdwT-0">Price</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td class="fw-600">Item #1 Name</td>
-                              <td><span class="badge bgc-red-50 c-red-700 p-10 lh-0 tt-c badge-pill">Unavailable</span> </td>
-                              <td>Nov 18</td>
-                              <td><span class="text-success">$12</span></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-600">Item #2 Name</td>
-                              <td><span class="badge bgc-deep-purple-50 c-deep-purple-700 p-10 lh-0 tt-c badge-pill">New</span></td>
-                              <td>Nov 19</td>
-                              <td><span class="text-info">$34</span></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-600">Item #3 Name</td>
-                              <td><span class="badge bgc-pink-50 c-pink-700 p-10 lh-0 tt-c badge-pill">New</span></td>
-                              <td>Nov 20</td>
-                              <td><span class="text-danger">-$45</span></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-600">Item #4 Name</td>
-                              <td><span class="badge bgc-green-50 c-green-700 p-10 lh-0 tt-c badge-pill">Unavailable</span></td>
-                              <td>Nov 21</td>
-                              <td><span class="text-success">$65</span></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-600">Item #5 Name</td>
-                              <td><span class="badge bgc-red-50 c-red-700 p-10 lh-0 tt-c badge-pill">Used</span></td>
-                              <td>Nov 22</td>
-                              <td><span class="text-success">$78</span></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-600">Item #6 Name</td>
-                              <td><span class="badge bgc-orange-50 c-orange-700 p-10 lh-0 tt-c badge-pill">Used</span> </td>
-                              <td>Nov 23</td>
-                              <td><span class="text-danger">-$88</span></td>
-                            </tr>
-                            <tr>
-                              <td class="fw-600">Item #7 Name</td>
-                              <td><span class="badge bgc-yellow-50 c-yellow-700 p-10 lh-0 tt-c badge-pill">Old</span></td>
-                              <td>Nov 22</td>
-                              <td><span class="text-success">$56</span></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                       </div>
-                    </div>
-                  </div>
-                  <div class="ta-c bdT w-100 p-20">
-                    <a href="#">Check all the sales</a>
-                  </div>
-                </div>
+              <div class="peer">
+                <!-- <button id="login_btn" class="btn btn-primary" onclick="return validate()">登录</button> -->
+                <button id="login_btn" class="btn btn-primary" onclick="return false;">登录</button>
+                <!-- <button class="btn btn-primary">登录</button> -->
               </div>
             </div>
           </div>
-        </main>
-
-        <!-- ### $App Screen Footer ### -->
-        <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
-        </footer>
+        </form>
       </div>
     </div>
   </body>
 </html>
+
+<script>
+    window.addEventListener('load', function load() {
+      const loader = document.getElementById('loader');
+      setTimeout(function() {
+        loader.classList.add('fadeOut');
+      }, 300);
+    });
+  </script>

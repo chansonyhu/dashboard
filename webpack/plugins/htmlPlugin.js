@@ -4,7 +4,8 @@ const
   HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const titles = {
-  'index': '智慧运营看板系统',
+  'index': '登录',
+  '00-app_info': '智慧运营看板系统',
   '01-coupon': '收楼优惠券',
   '02-repossession': '预约收楼',
   '03-app_payment': 'App支付',
@@ -15,8 +16,8 @@ const titles = {
   'datatable': 'Datatable',
   'forms': 'Forms',
   'google-maps': 'Google Maps',
-  'signin': 'Signin',
   'signup': 'Signup',
+  'login': 'Login',
   'ui': 'UI',
   'vector-maps': 'Vector Maps',
   '404': '404',

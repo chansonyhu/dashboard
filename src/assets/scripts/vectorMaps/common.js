@@ -111,7 +111,7 @@ const sidebarInit = () => {
         <!-- ### $Sidebar Menu ### -->
         <ul class="sidebar-menu scrollable pos-r">
           <li class="nav-item mT-30 actived">
-            <a class="sidebar-link" href="index.html">
+            <a class="sidebar-link" href="00-app_info.html">
               <span class="icon-holder">
                 <i class="c-blue-500 ti-home"></i>
               </span>
@@ -233,9 +233,6 @@ const sidebarInit = () => {
               </li>
               <li>
                 <a class='sidebar-link' href="500.html">500</a>
-              </li>
-              <li>
-                <a class='sidebar-link' href="signin.html">Sign In</a>
               </li>
               <li>
                 <a class='sidebar-link' href="signup.html">Sign Up</a>
@@ -474,7 +471,7 @@ const topbarInit = () => {
               <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt="">
             </div>
             <div class="peer">
-              <span class="fsz-sm c-grey-900">John Doe</span>
+              <span id="usr_name" class="fsz-sm c-grey-900"></span>
             </div>
           </a>
           <ul class="dropdown-menu fsz-sm">

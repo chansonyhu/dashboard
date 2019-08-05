@@ -8,6 +8,7 @@ export default (function () {
 
   const lineChartBox = document.getElementById('line-chart');
 
+  console.log('lineChartBox', lineChartBox);
   if (lineChartBox) {
     const lineCtx = lineChartBox.getContext('2d');
     lineChartBox.height = 80;
