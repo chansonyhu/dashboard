@@ -13,7 +13,7 @@
     <script>
       console.log('00:ref: ', document.referrer);
       if (document.referrer==='') {
-          alert("请先登录:'", document.referrer, "'");
+          alert("请先登录:'", document.referrer, "\'");
           console.log('close');
           window.opener=null;
           window.open('','_self');
