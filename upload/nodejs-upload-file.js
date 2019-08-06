@@ -7,9 +7,40 @@ var upload_html = fs.readFileSync("upload_file.html");
  
 // replace this with the location to save uploaded files
 // var upload_path = "/home/chansonyhu123/.tmp/";
-var upload_path = "/tmp/";
+var upload_path = "./DataDeal/data/excel/";
 
-http.createServer(function (req, res) {
+var html_header = `
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<title>Results</title>
+<style>
+    body{text-align:center;}
+    form{display:block;border:1px solid black;padding:20px;}
+</style>
+</head>
+<body>
+<a class="">文件上传成功！</a>
+`
+
+var html_end = `
+<span></span>
+<a id='btn_back_to_upload' class=""><I><U>返回</U></I></a>
+</body>
+</html>
+<script>
+    console.log('back');
+    $("#btn_back_to_upload").click(function(){
+        console.log('back');
+        window.location.href=document.referrer;
+    });
+</script>
+`
+
+http.createServer(
+    function (req, res) {
     if (req.url == '/uploadform') {
       res.writeHead(200);
       res.write(upload_html);
@@ -26,23 +57,30 @@ http.createServer(function (req, res) {
             fs.rename(oldpath, newpath, function (err) {
                 if (err) throw err;
                 // you may respond with another html page
-                res.write('File uploaded and moved!');
+                res.write(html_header);
                 //req.url = '/uploadform';
                 //res.write(upload_html);
-                res.end();
                 console.log('File uploaded and moved!');
 
                 // 成功的例子
-                exec('ls -al', function(error, stdout, stderr){
-                    if(error) {
-                        console.error('error: ' + error);
-                        return;
-                    }
-                    console.log('stdout: ' + stdout);
-                    console.log('stderr: ' + typeof stderr);
+                var exec_rst = exec('./forest_data_process.sh ' + files.filetoupload.name, function(error, stdout, stderr){
+                if(error) {
+                    console.error('error: ' + error);
+                    res.write('<a class="">数据更新失败！</a>');
+                } else {
+                    res.write(`<a class="">` +
+                    files.filetoupload.name
+                    + `文件更新成功！</a>`);
+                }
+                res.write(html_end);
+                res.end();
+                console.log('stdout: ' + stdout);
+                console.log('stderr: ' + typeof stderr);
+                return 1;
                 });
-
             });
         });
+
     }
-}).listen(8086);
+    }
+).listen(8086);

@@ -24,19 +24,19 @@
 </head>
 <body>
     <h1>Upload files to Server</h1>
- 
+    <a class="">一次只能上传一个文件，可以上传压缩包（只支持zip和rar格式）</a>
     <form action="fileupload" method="post" enctype="multipart/form-data">
         <input type="file" name="filetoupload">
         <input type="submit" value="Upload">
     </form>
 
-    <a id='btn_back' class="">返回</a>
+    <a id='btn_back' class=""><I><U>返回</U></I></a>
 
 </body>
 </html>
 <script>
     console.log('back');
-    $("#btn_back").click(function(){
+    $("#btn_back_to_upload").click(function(){
         console.log('back');
         window.location.href=document.referrer;
     });
