@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<title>Upload File</title>
+<script>
+    console.log('00:ref: ', document.referrer);
+    if (document.referrer==='') {
+        alert("Please login first'", document.referrer, "\'");
+        console.log('close');
+        window.opener=null;
+        window.open('','_self');
+        window.location.href="http://" + document.domain + ':3001';
+        // location = "/00-app_info.html";
+        window.close();
+      
+    }
+  </script>
+<style>
+    body{text-align:center;}
+    form{display:block;border:1px solid black;padding:20px;}
+</style>
+</head>
+<body>
+    <h1>Upload files to Server</h1>
+ 
+    <form action="fileupload" method="post" enctype="multipart/form-data">
+        <input type="file" name="filetoupload">
+        <input type="submit" value="Upload">
+    </form>
+
+    <a id='btn_back' class="">返回</a>
+
+</body>
+</html>
+<script>
+    console.log('back');
+    $("#btn_back").click(function(){
+        console.log('back');
+        window.location.href=document.referrer;
+    });
+</script>
