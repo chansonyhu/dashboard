@@ -17,7 +17,7 @@ if [ "${file##*.}"x = "zip"x ];then
 fi
 if [ "${file##*.}"x = "rar"x ];then
     cd $EXCEL_PATH
-    unzip $file
+    unar $file
     rm $EXCEL_PATH/$file
     dir=`ls -d */`
     mv $EXCEL_PATH/$dir/* $EXCEL_PATH/../
@@ -28,4 +28,6 @@ for script in `ls *.py`
 do
     python3.6 $script
 done
-rm -R $WORK_PATH/data/excel/*
+rm -R $EXCEL_PATH/*
+
+cp $WORK_PATH/data/*json $WORK_PATH/../../src/assets/static/data/

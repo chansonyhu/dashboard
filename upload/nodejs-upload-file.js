@@ -22,7 +22,6 @@ var html_header = `
 </style>
 </head>
 <body>
-<a class="">文件上传成功！</a>
 `
 
 var html_end = `
@@ -55,20 +54,31 @@ http.createServer(
             console.log('newpath: ', newpath);
             // copy the file to a new location
             fs.rename(oldpath, newpath, function (err) {
-                if (err) throw err;
+                if (err) {
+                    res.write(html_header);
+                    res.write('<a class="">发生异常！</a>');
+                    res.write(html_end);
+                    res.end();
+                    return;
+                };
                 // you may respond with another html page
                 res.write(html_header);
                 //req.url = '/uploadform';
                 //res.write(upload_html);
                 console.log('File uploaded and moved!');
 
+                console.log('./forest_data_process.sh ' + files.filetoupload.name);
                 // 成功的例子
-                var exec_rst = exec('./forest_data_process.sh ' + files.filetoupload.name, function(error, stdout, stderr){
+                exec('./forest_data_process.sh ' + files.filetoupload.name, function(error, stdout, stderr){
                 if(error) {
                     console.error('error: ' + error);
-                    res.write('<a class="">数据更新失败！</a>');
+                    
+                    res.write(`
+                    <a class="">文件上传成功！</a>
+                    <a class="">数据更新失败！</a>`);
                 } else {
-                    res.write(`<a class="">` +
+                    res.write(`<a class="">文件上传成功！</a>
+                    <a class="">` +
                     files.filetoupload.name
                     + `文件更新成功！</a>`);
                 }
