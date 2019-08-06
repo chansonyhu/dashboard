@@ -10,17 +10,17 @@ fi
 if [ "${file##*.}"x = "zip"x ];then
     cd $EXCEL_PATH
     unzip $file
-    rm $EXCEL_PATH/$file
-    dir=`ls -d */`
-    mv $EXCEL_PATH/$dir/* $EXCEL_PATH/../
+    mv $EXCEL_PATH/$file /tmp/
+    dir=$(echo $1 | cut -d . -f1)
+    mv $EXCEL_PATH/$dir/*xls $EXCEL_PATH/../
     rm -R $EXCEL_PATH/$dir 
 fi
 if [ "${file##*.}"x = "rar"x ];then
     cd $EXCEL_PATH
     unar $file
-    rm $EXCEL_PATH/$file
-    dir=`ls -d */`
-    mv $EXCEL_PATH/$dir/* $EXCEL_PATH/../
+    mv $EXCEL_PATH/$file /tmp/
+    dir=$(echo $1 | cut -d . -f1)
+    mv $EXCEL_PATH/$dir/*xls $EXCEL_PATH/../
     rm -R $EXCEL_PATH/$dir 
 fi
 cd $WORK_PATH
