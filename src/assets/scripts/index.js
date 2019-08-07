@@ -13,7 +13,7 @@ import './sidebar';
 import './skycons';
 // import './chat';
 import './datatable';
-// import './datepicker';
+import './datepicker';
 // import './email';
 // import './fullcalendar';
 // import './googleMaps';
