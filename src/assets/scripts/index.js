@@ -3,6 +3,7 @@ import './coupon';
 import './vectorMaps';
 import '../styles/index.scss';
 import './signin';
+import './app_payment';
 
 import './masonry';
 import './charts';

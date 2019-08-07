@@ -34,7 +34,6 @@ export default (function () {
                     if(k !== 'Set')
                     time_series.push(k);
                 }
-                var num_of_catelog = 5;
                 var num_of_months = time_series.length - 1;
 
                 var values = [];
@@ -121,9 +120,10 @@ export default (function () {
         if (option && typeof option === "object") {
             myChart.setOption(option, true);
         }
+
+        $(window).resize(debounce(myChart.resize, 150));
     }
 };
     repossessionInit();
-    $(window).resize(debounce(repossessionInit, 150));
 
 })();
