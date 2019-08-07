@@ -4,6 +4,7 @@ WORK_PATH="/home/"$USER"/dashboard/upload/DataDeal"
 EXCEL_PATH="$WORK_PATH/data/excel"
 cd $EXCEL_PATH
 file=$1
+if [ "$1" != "" ]; then
 if [ "${file##*.}"x = "xlsx"x ]||[ "${file##*.}"x = "xls"x ];then
     mv $EXCEL_PATH/$file $EXCEL_PATH/../
 fi
@@ -23,6 +24,7 @@ if [ "${file##*.}"x = "rar"x ];then
     mv $EXCEL_PATH/$dir/*xls $EXCEL_PATH/../
     rm -R $EXCEL_PATH/$dir 
 fi
+fi # if [ "$1" != "" ]; then
 cd $WORK_PATH
 for script in `ls *.py`
 do

@@ -36,8 +36,14 @@
 </html>
 <script>
     console.log('back');
-    $("#btn_back_to_upload").click(function(){
+    $("#btn_back").click(function(){
         console.log('back');
-        window.location.href=document.referrer;
+        var tmp = document.referrer.split('/');
+        var tar = tmp[tmp.length - 1];
+        if (tar==='fileupload' || tmp==='uploadform') {
+            window.location.href='http://' + document.domain + ':3001/00-app_info.html';
+        } else {
+            window.location.href=document.referrer;
+        }
     });
 </script>
