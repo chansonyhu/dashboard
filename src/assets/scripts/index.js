@@ -4,6 +4,8 @@ import './vectorMaps';
 import '../styles/index.scss';
 import './signin';
 import './app_payment';
+import './hotel';
+import './sales';
 
 import './masonry';
 import './charts';

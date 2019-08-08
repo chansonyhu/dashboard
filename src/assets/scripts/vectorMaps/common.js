@@ -144,11 +144,19 @@ const sidebarInit = () => {
             </a>
           </li>
           <li class="nav-item">
-            <a class='sidebar-link' href="03-app_payment.html">
+            <a class='sidebar-link' href="04-hotels.html">
               <span class="icon-holder">
                 <i class="c-deep-purple-500 ti-home"></i>
               </span>
               <span class="title">酒店数据</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class='sidebar-link' href="05-sales.html">
+              <span class="icon-holder">
+                <i class="c-deep-orage-500 ti-medall"></i>
+              </span>
+              <span class="title">营销数据</span>
             </a>
           </li>
         </ul>
