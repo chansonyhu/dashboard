@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 WORK_PATH="/home/"$USER"/dashboard/upload/DataDeal"
 EXCEL_PATH="$WORK_PATH/data/excel"
