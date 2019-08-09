@@ -11,7 +11,7 @@ const titles = {
   '03-app_payment': 'App支付',
   '04-reading': '阅森活',
   '04-hotels': '酒店数据',
-  '05-sales': '销售数据',
+  '05-sales': '营销数据',
   'signup': 'Signup',
   'login': 'Login',
   '404': '404',
