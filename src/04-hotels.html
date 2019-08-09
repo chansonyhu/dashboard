@@ -8,7 +8,7 @@
     <!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script> -->
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-    <title>App支付</title>
+    <title>酒店数据</title>
     <script>
       console.log('00:ref: ', document.referrer);
       if (document.referrer==='') {
@@ -67,30 +67,137 @@
         <div id="common-topbar"></div>
 
         <!-- ### $App Screen Content ### -->
-        
-        <main class='main-content bgc-grey-100 scrollable pos-r bdT layer'>
-          <div class="row gap-20 masonry pos-r">
-            <!-- 第1個item元件的寛度將定義所有元件初始寛度 -->
-            <div class="masonry-sizer col-md-6"></div>
+        <!-- ### $App Screen Content ### -->
+        <main class='main-content bgc-grey-100'>
+          <div id='mainContent'>
+            <div class="row gap-20 masonry pos-r">
+              <!-- 第1個item元件的寛度將定義所有元件初始寛度 -->
+              <div class="masonry-sizer col-md-6"></div>
+              
+              <div class="masonry-item col-md-12">
+                <!-- # ==================== -->
+                <div class="bd bgc-white">
+                  <div class="layers">
+                    <div class="layer w-100 pX-20 pT-20">
+                      <h6 class="lh-1">月经营情况</h6>
+                    </div>
+                    <div class="layer center w-100">
+                      <div id="bar_line_01"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="masonry-item col-md-12">
+                <!-- # ==================== -->
+                <div class="bd bgc-white">
+                  <div class="layers">
+                    <div class="layer w-100 pX-20 pT-20">
+                      <h6 class="lh-1">开房数</h6>
+                    </div>
+                    <div class="layer center w-100">
+                      <div id="bar_line_02"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="masonry-item col-md-12">
+                  <div class="bd bgc-white">
+                      <div class="layers">
+                          <div class="layer w-100 pX-20 pT-20">
+                              <h6 class="lh-1">住客类型</h6>
+                          </div>
+                          <div class="layer center w-100">
+                              <!-- <canvas id='mainContent' height="400" width="500"></canvas> -->
+                              <div id='bar_line_03'></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
-            <div class="masonry-item col-md-12">
+              <div class="masonry-item col-md-6">
                 <!-- #Monthly Stats ==================== -->
                 <div class="bd bgc-white">
                   <div class="layers">
                     <div class="layer w-100 pX-20 pT-20">
-                      <h6 class="lh-1">酒店数据</h6>
+                      <h6 class="lh-1">GAS</h6>
                     </div>
                     <div class="layer center w-100">
-                        <!-- <canvas id='mainContent' height="400" width="500"></canvas> -->
-                        <div id='mainContent_app_payment'>
-                        </div>
+                      <div id="sub01"></div>
                     </div>
                   </div>
                 </div>
+              </div>
+  
+              <div class="masonry-item col-md-6">
+                <div class="bd bgc-white">
+                  <div class="layers">
+                    <div class="layer w-100 pX-20 pT-20">
+                      <h6 class="lh-1">GAS</h6>
+                    </div>
+                    <div class="layer center w-100">
+                      <div id="sub02"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="masonry-item col-md-6">
+                  <!-- #Monthly Stats ==================== -->
+                  <div class="bd bgc-white">
+                    <div class="layers">
+                      <div class="layer w-100 pX-20 pT-20">
+                        <h6 class="lh-1">WATER</h6>
+                      </div>
+                      <div class="layer center w-100">
+                        <div id="sub03"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="masonry-item col-md-6">
+                  <div class="bd bgc-white">
+                    <div class="layers">
+                      <div class="layer w-100 pX-20 pT-20">
+                        <h6 class="lh-1">WATER</h6>
+                      </div>
+                      <div class="layer center w-100">
+                        <div id="sub04"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="masonry-item col-md-6">
+                    <!-- #Monthly Stats ==================== -->
+                    <div class="bd bgc-white">
+                      <div class="layers">
+                        <div class="layer w-100 pX-20 pT-20">
+                          <h6 class="lh-1">electricity</h6>
+                        </div>
+                        <div class="layer center w-100">
+                          <div id="sub05"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="masonry-item col-md-6">
+                    <div class="bd bgc-white">
+                      <div class="layers">
+                        <div class="layer w-100 pX-20 pT-20">
+                          <h6 class="lh-1">electricity</h6>
+                        </div>
+                        <div class="layer center w-100">
+                          <div id="sub06"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
             </div>
           </div>
         </main>
-
         <!-- ### $App Screen Footer ### -->
         <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
         </footer>

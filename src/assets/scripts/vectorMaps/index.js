@@ -80,12 +80,12 @@ export default (function () {
             if (typeof(entire_country_dist[code]) === "undefined") {
               label.html(
                 '<b>'+label.html()+'</b></br>'+
-                '<b>登录数: </b>'+ 0
+                '<b>注册数: </b>'+ 0
                 );
             } else {
               label.html(
                 '<b>'+label.html()+'</b></br>'+
-                '<b>登录数: </b>'+ entire_country_dist[code] 
+                '<b>注册数: </b>'+ entire_country_dist[code] 
               );
             }
           },

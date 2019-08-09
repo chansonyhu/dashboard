@@ -35,14 +35,16 @@ export default (function () {
             pointBackgroundColor : COLORS['deep-purple-700'],
             borderWidth          : 2,
             data                 : values,
-          }, {
-            label                : '认证',
-            backgroundColor      : 'rgba(232, 245, 233, 0.5)',
-            borderColor          : COLORS['blue-500'],
-            pointBackgroundColor : COLORS['blue-700'],
-            borderWidth          : 2,
-            data                 : values,
-          }],
+          }, 
+          // {
+          //   label                : '认证',
+          //   backgroundColor      : 'rgba(232, 245, 233, 0.5)',
+          //   borderColor          : COLORS['blue-500'],
+          //   pointBackgroundColor : COLORS['blue-700'],
+          //   borderWidth          : 2,
+          //   data                 : values,
+          // }
+        ],
         },
 
         options: {
@@ -79,18 +81,20 @@ export default (function () {
         data: {
           labels: keys,
           datasets: [{
-            label           : 'Dataset 1',
-            backgroundColor : COLORS['deep-purple-500'],
-            borderColor     : COLORS['deep-purple-800'],
-            borderWidth     : 1,
-            data            : values,
-          }, {
-            label           : 'Dataset 2',
+            label           : '注册数',
             backgroundColor : COLORS['light-blue-500'],
             borderColor     : COLORS['light-blue-800'],
             borderWidth     : 1,
             data            : values,
-          }],
+          }
+          // ,{
+          //   label           : 'Dataset 2',
+          //   backgroundColor : COLORS['light-blue-500'],
+          //   borderColor     : COLORS['light-blue-800'],
+          //   borderWidth     : 1,
+          //   data            : values,
+          // }
+        ],
         },
 
         options: {
