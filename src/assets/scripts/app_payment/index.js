@@ -77,6 +77,28 @@ export default (function () {
                             xAxis: {type: 'category'},
                             yAxis: {gridIndex: 0},
                             grid: {top: '55%'},
+                            toolbox: {
+                                orient: 'vertical',
+                                feature: {
+                                    mark : {
+                                        show : true,
+                                        title : {
+                                            mark : '辅助线开关',
+                                            markUndo : '删除辅助线',
+                                            markClear : '清空辅助线'
+                                        },
+                                        lineStyle : {
+                                            width : 2,
+                                            color : '#1e90ff',
+                                            type : 'dashed'
+                                        }
+                                    },
+                                    dataView: {show: true, readOnly: false},
+                                    magicType: {show: true, type: ['line', 'bar']},
+                                    restore: {show: true},
+                                    saveAsImage: {show: true},
+                                }
+                            },
                             series: [
                                 {type: 'line', smooth: true, seriesLayoutBy: 'row'},
                                 {type: 'line', smooth: true, seriesLayoutBy: 'row'},

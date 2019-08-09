@@ -148,4 +148,16 @@ $.getJSON('assets/static/data/APPuser_distribute.json', function(data){
   + other_prop +`" aria-valuemin="0" aria-valuemax="100" style="width:` + other_prop + `%;"> <span class="sr-only">` + other_prop + `% Complete</span></div>
   </div>
   `);
+  console.log('cn_pie:', cn_prop);
+  $('#cn_pie').append(`
+  <div class="easy-pie-chart" data-size='80' data-percent="`+
+  cn_prop
+  +`" data-bar-color='#f44336'>
+  <span>`+
+  cn_prop
+  +` %</span> <canvas height="160" width="160" style="height: 80px; width: 80px;"></canvas>
+  </div>
+  <h6 class="fsz-sm">中国用户</h6>
+  `);
+
 });

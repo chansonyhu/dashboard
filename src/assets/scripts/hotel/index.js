@@ -90,6 +90,19 @@ export default (function () {
                     },
                     toolbox: {
                         feature: {
+                            mark : {
+                                show : true,
+                                title : {
+                                    mark : '辅助线开关',
+                                    markUndo : '删除辅助线',
+                                    markClear : '清空辅助线'
+                                },
+                                lineStyle : {
+                                    width : 2,
+                                    color : '#1e90ff',
+                                    type : 'dashed'
+                                }
+                            },
                             dataView: {show: true, readOnly: false},
                             magicType: {show: true, type: ['line', 'bar']},
                             restore: {show: true},
@@ -250,7 +263,7 @@ export default (function () {
                     yAxis: [
                         {
                             type: 'value',
-                            name: '万元',
+                            name: '间',
                             min: 0,
                             max: Math.round(max_num * 1.2),
                             interval: 1000,
@@ -365,6 +378,27 @@ export default (function () {
                         text: '',
                         subtext: '',
                         x:'left'
+                    },
+                    toolbox: {
+                        feature: {
+                            mark : {
+                                show : true,
+                                title : {
+                                    mark : '辅助线开关',
+                                    markUndo : '删除辅助线',
+                                    markClear : '清空辅助线'
+                                },
+                                lineStyle : {
+                                    width : 2,
+                                    color : '#1e90ff',
+                                    type : 'dashed'
+                                }
+                            },
+                            dataView: {show: true, readOnly: false},
+                            magicType: {show: true, type: ['line', 'bar']},
+                            restore: {show: true},
+                            saveAsImage: {show: true}
+                        }
                     },
                     legend: {
                         type: 'scroll',

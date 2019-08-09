@@ -41,9 +41,9 @@ export default (function () {
                 for(var key in month_data) {
                     var series_item = {};
                     series_item['name'] = key;
-                    legend_data.push(key);
+                    legend_data.push(key); 
                     series_item['type'] = 'line';
-                    series_item['stack'] = '总量';
+                    //series_item['stack'] = '总量';
                     var series_data = [];
                     var xAxis_data = [];
                     var original_data = month_data[key]['independent'];
@@ -70,11 +70,6 @@ export default (function () {
                         bottom: '3%',
                         containLabel: true
                     },
-                    toolbox: {
-                        feature: {
-                            saveAsImage: {}
-                        }
-                    },
                     xAxis: {
                         type: 'category',
                         boundaryGap: false,
@@ -84,6 +79,28 @@ export default (function () {
                         type: 'value'
                     },
                     series: series_group,
+                    toolbox: {
+                        orient: 'vertical',
+                        feature: {
+                            mark : {
+                                show : true,
+                                title : {
+                                    mark : '辅助线开关',
+                                    markUndo : '删除辅助线',
+                                    markClear : '清空辅助线'
+                                },
+                                lineStyle : {
+                                    width : 2,
+                                    color : '#1e90ff',
+                                    type : 'dashed'
+                                }
+                            },
+                            dataView: {show: true, readOnly: false},
+                            magicType: {show: true, type: ['line', 'bar']},
+                            restore: {show: true},
+                            saveAsImage: {show: true},
+                        }
+                    },
                     dataZoom : {
                         show : true,
                         realtime : true,
@@ -130,7 +147,7 @@ export default (function () {
                     series_item['name'] = key;
                     legend_data.push(key);
                     series_item['type'] = 'line';
-                    series_item['stack'] = '总量';
+                    // series_item['stack'] = '总量';
                     var series_data = [];
                     var xAxis_data = [];
                     var original_data = month_data[key]['accu'];
@@ -159,8 +176,25 @@ export default (function () {
                         containLabel: true
                     },
                     toolbox: {
+                        orient: 'vertical',
                         feature: {
-                            saveAsImage: {}
+                            mark : {
+                                show : true,
+                                title : {
+                                    mark : '辅助线开关',
+                                    markUndo : '删除辅助线',
+                                    markClear : '清空辅助线'
+                                },
+                                lineStyle : {
+                                    width : 2,
+                                    color : '#1e90ff',
+                                    type : 'dashed'
+                                }
+                            },
+                            dataView: {show: true, readOnly: false},
+                            magicType: {show: true, type: ['line', 'bar']},
+                            restore: {show: true},
+                            saveAsImage: {show: true},
                         }
                     },
                     xAxis: {
@@ -281,6 +315,14 @@ export default (function () {
                     },
                     dataset: {
                         source: series_data
+                    },
+                    toolbox: {
+                        orient: 'vertical',
+                        feature: {
+                            dataView: {show: true, readOnly: false},
+                            restore: {show: true},
+                            saveAsImage: {show: true},
+                        }
                     },
                     series: [{
                         name: months[1],
