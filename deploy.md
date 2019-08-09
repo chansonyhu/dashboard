@@ -22,6 +22,7 @@ cd ~
 git clone https://github.com/chansonyhu/dashboard.git
 cd dashboard
 sudo cp start.sh /etc/init.d/
+npm install
 cd upload
 npm install formidable
 /home/forest/dashboard/start.sh
