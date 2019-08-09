@@ -14,6 +14,7 @@ if [ "${file##*.}"x = "zip"x ];then
     mv $EXCEL_PATH/$file /tmp/
     dir=$(echo $1 | cut -d . -f1)
     mv $EXCEL_PATH/$dir/*xls $EXCEL_PATH/../
+    mv $EXCEL_PATH/$dir/*xlsx $EXCEL_PATH/../
     rm -R $EXCEL_PATH/$dir 
 fi
 if [ "${file##*.}"x = "rar"x ];then
