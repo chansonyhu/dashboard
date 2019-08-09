@@ -94,7 +94,7 @@ def distribute_by_item(data,f_item,s_item):
     main_f=dict(sorted(father_key.items(), key=lambda e: e[1],reverse=True)[:num]).keys()
     dict_receive=dict(list(data.groupby(f_item)))
     father_freq={}
-    father_freq['Set']=[]
+#    father_freq['Set']=[]
     
     for f in main_f:
         fc=To_chinese(f)
@@ -102,7 +102,7 @@ def distribute_by_item(data,f_item,s_item):
         if not dis:
             continue
         father_freq[fc]=dis
-        father_freq['Set'].append(fc)
+#        father_freq['Set'].append(fc)
         
       
     return father_freq
@@ -141,7 +141,9 @@ if __name__ == '__main__':
     if not(dis_inter==1):
         sale_statistics['关联分析']=dis_inter
     with open('data/sale.json','w',encoding='utf-8') as f:
+        f.write('sales_data=`')
         json.dump(sale_statistics,f,indent=1,ensure_ascii=False)
+        f.write('`;')
     f.close()
 
     

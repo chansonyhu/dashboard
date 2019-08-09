@@ -30,7 +30,7 @@ def jingying_month(filename='hotel_data',sheet="月份经营情况"):
     return sale
 
 
-def room_month(filename='hotel_data',sheet="月开房情况"):
+def room_month(filename='hotel_data',sheet="月住房情况"):
     path="data/"
     try:
         data = pd.read_excel(path+filename+".xls",sheet_name=sheet,header=0)
@@ -42,9 +42,9 @@ def room_month(filename='hotel_data',sheet="月开房情况"):
     room={}
     for i in range(num_row):
         room[data['月份'][row[i]]]={}
-        room[data['月份'][row[i]]]['实际开房数Actual']=data['实际开房数'][row[i]]
-        room[data['月份'][row[i]]]['预算开房数Budget']=data['预算开房数'][row[i]]
-        room[data['月份'][row[i]]]['Completion Rate预算完成率']=room[data['月份'][row[i]]]['实际开房数Actual']/room[data['月份'][row[i]]]['预算开房数Budget']
+        room[data['月份'][row[i]]]['实际住房数Actual']=data['实际住房数'][row[i]]
+        room[data['月份'][row[i]]]['预算住房数Budget']=data['预算住房数'][row[i]]
+        room[data['月份'][row[i]]]['Completion Rate预算完成率']=room[data['月份'][row[i]]]['实际住房数Actual']/room[data['月份'][row[i]]]['预算住房数Budget']
 
     return room
 
