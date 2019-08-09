@@ -28,7 +28,7 @@ fi # if [ "$1" != "" ]; then
 cd $WORK_PATH
 for script in `ls *.py`
 do
-    python3.6 $script
+    python3.7 $script
 done
 rm -R $EXCEL_PATH/*
 
