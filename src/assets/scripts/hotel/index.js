@@ -35,14 +35,14 @@ export default (function () {
             console.log('start');
             $.getJSON('assets/static/data/hotel.json', function(data){
                 app.title = '';
-                var sales_data = data['经营情况'];
+                var hotel_sales_data = data['经营情况'];
 
                 var months = [];
                 var legend_data = [];
-                for(var m in sales_data) {
+                for(var m in hotel_sales_data) {
                     months.push(m);
                 }
-                var first_month = sales_data[months[0]];
+                var first_month = hotel_sales_data[months[0]];
 
                 for(var l in first_month) {
                     legend_data.push(l);
@@ -58,7 +58,7 @@ export default (function () {
                     single.type = 'bar';
                     var raw_data = [];
                     for(var j  = 0; j < months.length; j++) {
-                        var this_month = sales_data[months[j]];
+                        var this_month = hotel_sales_data[months[j]];
                         if(this_month[legend_data[i]] > max_num) {
                             max_num = this_month[legend_data[i]];
                         }
@@ -187,14 +187,14 @@ export default (function () {
 
             $.getJSON('assets/static/data/hotel.json', function(data){
                 app.title = '';
-                var sales_data = data['开房情况'];
+                var hotel_sales_data = data['开房情况'];
 
                 var months = [];
                 var legend_data = [];
-                for(var m in sales_data) {
+                for(var m in hotel_sales_data) {
                     months.push(m);
                 }
-                var first_month = sales_data[months[0]];
+                var first_month = hotel_sales_data[months[0]];
 
                 for(var l in first_month) {
                     legend_data.push(l);
@@ -210,7 +210,7 @@ export default (function () {
                     single.type = 'bar';
                     var raw_data = [];
                     for(var j  = 0; j < months.length; j++) {
-                        var this_month = sales_data[months[j]];
+                        var this_month = hotel_sales_data[months[j]];
                         if(this_month[legend_data[i]] > max_num) {
                             max_num = this_month[legend_data[i]];
                         }

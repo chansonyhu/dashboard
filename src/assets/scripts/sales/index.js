@@ -206,6 +206,14 @@ export default (function () {
                         left: 'left',
                         data: subs
                     },
+                    toolbox: {
+                        orient: 'vertical',
+                        feature: {
+                            dataView: {show: true, readOnly: false},
+                            restore: {show: true},
+                            saveAsImage: {show: true},
+                        }
+                    },
                     series : [
                         {
                             name: key,
