@@ -17,6 +17,7 @@ export default (function () {
             option.push(null);
             myChart.push(null);
         }
+        console.log(total);
         for(var i = 0; i < total; i++) {
             $('#subsub' + i).remove();
             if ($('#main_pies').length > 0) {
@@ -42,7 +43,6 @@ export default (function () {
                     </div>
                 `);
                 var dom = document.getElementById("subsub" + i);
-                // console.log('dom:', dom);
                 //var dom = document.getElementsByClassName("coupon-app");
                 myChart[i] = echarts.init(dom);
 
@@ -144,7 +144,7 @@ export default (function () {
             myChart.push(null);
         }
         for(var i = 0; i < total; i++) {
-            $('#subsub' + i).remove();
+            $('#subsubsub' + i).remove();
             if ($('#main_pies').length > 0) {
                 // This is a hack, as the .empty() did not do the work
                 // $('#v_sub' + i).remove();
@@ -156,7 +156,7 @@ export default (function () {
                             <h6 class="lh-1"></h6>
                             </div>
                             <div class="layer center w-100">
-                            <div id="subsub`+i+`" style="
+                            <div id="subsubsub`+i+`" style="
                             height: 500px;
                             position: relative;
                             overflow: hidden;
@@ -167,8 +167,8 @@ export default (function () {
                         </div>
                     </div>
                 `);
-                var dom = document.getElementById("subsub" + i);
-                console.log('dom:', dom);
+                var dom = document.getElementById("subsubsub" + i);
+                console.log(dom);
                 //var dom = document.getElementsByClassName("coupon-app");
                 myChart[i] = echarts.init(dom);
 
